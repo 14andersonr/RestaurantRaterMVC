@@ -100,5 +100,25 @@ namespace RestaurantRaterMVC.Controllers
 
             return View(restaurant);
         }
+
+        // GET: Restaurant/Details/{id}
+        //Get an id from the user
+        //Handle if the id is null
+        //Find a restaurant by the id
+        //If the restaurant doesnt exist
+        //Return the restaurant and the view
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            Restaurant restaurant = _dB.Restaurants.Find(id);
+            if (restaurant == null)
+            {
+                return HttpNotFound();
+            }
+            return View(restaurant);
+        }
     }
 }
