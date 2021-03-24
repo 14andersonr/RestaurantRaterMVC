@@ -8,7 +8,7 @@ namespace RestaurantRaterMVC.Models
 {
     public class Restaurant
     {
-
+        public int RestaurantID { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public int Rating { get; set; }
@@ -16,6 +16,6 @@ namespace RestaurantRaterMVC.Models
 
     public class RestaurantDbContext : DbContext
     {
-        public DbSet<Restaurant> MyProperty { get; set; }
+        public DbSet<Restaurant> Restaurants { get; set; }
     }
 }
